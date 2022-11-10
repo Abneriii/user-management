@@ -15,6 +15,18 @@ class IUserServiceTest {
     @Autowired
     IUserService iUserService;
 
+    //测试注册功能
+    @Test
+    void testSignUp(){
+        if(iUserService.singUp("1243@qq.com","nini")!=null){
+            System.out.println("注册成功");
+        }else{
+            System.out.println("注册失败");
+        }
+
+    }
+
+    //测试数据库连通性
     @Test
     void testSave() {
         User user = new User();
@@ -30,9 +42,11 @@ class IUserServiceTest {
         assertEquals(true, iUserService.save(user));
 
     }
+
+    //测试登录功能
     @Test
     void testLogin(){
-
+        //【2022.11.10疑问】在以下情景应该如何正确使用Junit完成样例测试？
         User user=iUserService.login("1569209119@qq.com","123");
         if(user!=null){
             System.out.println("登录成功");

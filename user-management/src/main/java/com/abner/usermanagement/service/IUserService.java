@@ -15,6 +15,6 @@ public interface IUserService extends IService<User> {
 
     User login(String email,String password);
 
-    User singUp(String eamil,String password);
+    User singUp(String email,String password);
 
 }
